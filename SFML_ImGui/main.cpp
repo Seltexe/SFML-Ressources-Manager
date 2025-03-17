@@ -7,10 +7,13 @@
 #include "../thirdparty/imgui/imguiThemes.h"
 #pragma endregion
 
+#include "StateManager.hpp"
+#include "GameState.hpp"
+#include "ResourceManager.hpp"
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(500, 500), "SFML works!");
+	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 
 #pragma region imgui
 	ImGui::SFML::Init(window);
@@ -18,26 +21,23 @@ int main()
 	//ImGui::StyleColorsDark();				
 	//imguiThemes::yellow();
 	//imguiThemes::gray();
-	imguiThemes::green();
+	//imguiThemes::green();
 	//imguiThemes::red();
 	//imguiThemes::gray();
-	//imguiThemes::embraceTheDarkness();
+	imguiThemes::embraceTheDarkness();
 
 	ImGuiIO& io = ImGui::GetIO(); (void)io;
 	io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 	//io.ConfigFlags |= ImGuiConfigFlags_NavEnableGamepad;      // Enable Gamepad Controls
 	io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
-	io.FontGlobalScale = 2.f;
+	io.FontGlobalScale = 1.5f;
 	ImGuiStyle& style = ImGui::GetStyle();
 	style.Colors[ImGuiCol_WindowBg].w = 0.5f;
 	//style.Colors[ImGuiCol_DockingEmptyBg].w = 0.f;
 #pragma endregion
 
-
-
-	sf::CircleShape shape(100.f);
-	//window.setVerticalSyncEnabled(true);
-	shape.setFillColor(sf::Color::Green);
+	StateManager stateManager;
+	stateManager.changeState(std::make_unique<GameState>());
 
 	sf::Clock clock;
 
@@ -86,10 +86,14 @@ int main()
 		ImGui::Text("Hello!");
 		ImGui::End();
 
+		stateManager.update(deltaTime);
+
+
 		//game code....
 		window.clear();
-		window.draw(shape);
-
+		//window.draw(shape);
+		
+		stateManager.render(window);
 
 #pragma region imgui
 		ImGui::SFML::Render(window);

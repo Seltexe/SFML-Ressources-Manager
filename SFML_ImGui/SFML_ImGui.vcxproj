@@ -149,6 +149,12 @@
     <ClCompile Include="..\thirdparty\imgui\imgui_widgets.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GameState.hpp" />
+    <ClInclude Include="ResourceManager.hpp" />
+    <ClInclude Include="State.hpp" />
+    <ClInclude Include="StateManager.hpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
