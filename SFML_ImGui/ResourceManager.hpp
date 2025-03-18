@@ -17,7 +17,6 @@ public:
 		return instance;
 	}
 
-	// loading and storing of resource
 	bool load(const std::string& id, const std::string& filename)
 	{
 		auto resource = std::make_unique<ResourceType>();
@@ -28,7 +27,6 @@ public:
 		return true;
 	}
 
-	// Version alternative avec vérification (optionnelle)
 	const ResourceType& Get(const std::string& id) const
 	{
 		if (!exists(id)) {

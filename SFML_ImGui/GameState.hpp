@@ -11,13 +11,13 @@ public:
 
     void onEnter() override 
     {
-        std::cout << "Entrée dans l'état GameState" << std::endl;
+        std::cout << "Entering GameState" << std::endl;
         // On peut vérifier ici si les ressources ont été chargées
     }
 
     void onExit() override 
     {
-        std::cout << "Sortie de l'état GameState" << std::endl;
+        std::cout << "Exit from GameState" << std::endl;
     }
 
     void loadResources() override 
