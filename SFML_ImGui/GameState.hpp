@@ -1,50 +1,50 @@
 #pragma once
 #include "State.hpp"
-#include "ResourceManager.hpp"
+#include "AssetLoader.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <future>
 
 class GameState : public State {
 public:
-    GameState() = default;
+    GameState() : loadingDone(false) {}
+
     virtual ~GameState() = default;
 
-    void onEnter() override 
-    {
+    void onEnter() override {
         std::cout << "Entering GameState" << std::endl;
-        // On peut vérifier ici si les ressources ont été chargées
+        loadingFuture = AssetLoader::loadAssetsAsync("../assets/assets.json", "game");
     }
 
-    void onExit() override 
-    {
-        std::cout << "Exit from GameState" << std::endl;
+    void onExit() override {
+        std::cout << "Exiting GameState" << std::endl;
     }
 
-    void loadResources() override 
-    {
-        // Exemple de chargement de texture via ResourceManager
-        auto& textureManager = ResourceManager<sf::Texture>::GetInstance();
-        if (!textureManager.exists("player")) 
-        {
-            if (textureManager.load("player", "../assets/textures/knight.png"))
-                std::cout << "Texture 'player' chargée !" << std::endl;
-            else
-                std::cerr << "Erreur lors du chargement de 'player' !" << std::endl;
+    void update(sf::Time dt) override {
+        if (!loadingDone && loadingFuture.valid() && loadingFuture.wait_for(std::chrono::seconds(0)) == std::future_status::ready) {
+            loadingDone = loadingFuture.get();
         }
-        // Ajouter d'autres ressources (fonts, sons, etc.) si besoin
     }
 
-    void update(sf::Time dt) override 
-    {
-        // Logique du jeu ici
+    void render(sf::RenderWindow& window) override {
+        if (!loadingDone) {
+            sf::Font font;
+            font.loadFromFile("../assets/fonts/arial.ttf");
+            sf::Text loadingText("Loading...", font, 30);
+            loadingText.setFillColor(sf::Color::White);
+			loadingText.setOrigin(loadingText.getLocalBounds().width / 2, loadingText.getLocalBounds().height / 2);
+            loadingText.setPosition(1280 / 2, 720 / 2);
+            window.draw(loadingText);
+        }
+        else {
+            auto& textureManager = ResourceManager<sf::Texture>::GetInstance();
+            sf::Sprite playerSprite;
+            playerSprite.setTexture(textureManager.Get("background6"));
+            window.draw(playerSprite);
+        }
     }
 
-    void render(sf::RenderWindow& window) override 
-    {
-        // Affichage du jeu, par exemple :
-        sf::Sprite playerSprite;
-        auto& textureManager = ResourceManager<sf::Texture>::GetInstance();
-        playerSprite.setTexture(textureManager.Get("player"));
-        window.draw(playerSprite);
-    }
+private:
+    std::future<bool> loadingFuture;
+    bool loadingDone;
 };

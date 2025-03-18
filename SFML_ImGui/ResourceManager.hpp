@@ -35,7 +35,6 @@ public:
 		return *m_resources.at(id);
 	}
 
-	// Verify if a resource exists
 	bool exists(const std::string& id) const 
 	{
 		return m_resources.find(id) != m_resources.end();

@@ -16,11 +16,6 @@ public:
     virtual void onExit() = 0;
 
     /// <summary>
-	/// Load resources specific to the state (executed asynchronously)
-    /// </summary>
-    virtual void loadResources() = 0;
-
-    /// <summary>
 	/// Update the state
     /// </summary>
     /// <param name="dt"></param>

@@ -1,0 +1,27 @@
+{
+    "menu": {
+        "background0": "../assets/textures/huge.jpg"
+    },
+    "game": {
+        "background1": "../assets/textures/huge.jpg",
+        "background2": "../assets/textures/huge.jpg",
+        "background3": "../assets/textures/huge.jpg",
+        "background4": "../assets/textures/huge.jpg",
+        "background5": "../assets/textures/huge.jpg",
+        "background6": "../assets/textures/huge.jpg",
+        "background7": "../assets/textures/huge.jpg",
+        "background8": "../assets/textures/huge.jpg",
+        "background9": "../assets/textures/huge.jpg",
+        "background10": "../assets/textures/huge.jpg",
+        "background11": "../assets/textures/huge.jpg",
+        "background12": "../assets/textures/huge.jpg",
+        "background13": "../assets/textures/huge.jpg",
+        "background14": "../assets/textures/huge.jpg",
+        "background15": "../assets/textures/huge.jpg",
+        "background16": "../assets/textures/huge.jpg",
+        "background17": "../assets/textures/huge.jpg",
+        "background18": "../assets/textures/huge.jpg",
+        "background19": "../assets/textures/huge.jpg",
+        "background20": "../assets/textures/huge.jpg"
+    }
+}
