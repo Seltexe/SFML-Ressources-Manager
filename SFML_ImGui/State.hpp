@@ -1,10 +1,14 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <optional>
+
+class StateManager;
 
 class State {
 public:
     virtual ~State() = default;
 
+#pragma region virtual
     /// <summary>
 	/// Called when entering the state
     /// </summary>
@@ -26,4 +30,12 @@ public:
     /// </summary>
     /// <param name="window"></param>
     virtual void render(sf::RenderWindow& window) = 0;
+#pragma endregion
+
+	void setStateManager(StateManager* stateManager) {
+		this->stateManager = stateManager;
+	}
+
+protected:
+	StateManager* stateManager = nullptr;
 };

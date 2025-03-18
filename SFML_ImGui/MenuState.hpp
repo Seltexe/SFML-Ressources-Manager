@@ -1,22 +1,19 @@
 #pragma once
 #include "State.hpp"
-#include "StateManager.hpp"
 #include "AssetLoader.hpp"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <future>
 
-#include "../thirdparty/imgui/imgui.h"
-
-class GameState : public State {
+class MenuState : public State {
 public:
-    GameState() : loadingDone(false) {}
+    MenuState() : loadingDone(false) {}
 
-    virtual ~GameState() = default;
+    virtual ~MenuState() = default;
 
     void onEnter() override {
-        std::cout << "Entering GameState" << std::endl;
-        loadingFuture = AssetLoader::loadAssetsAsync("../assets/assets.json", "game");
+        std::cout << "Entering MenuState" << std::endl;
+        loadingFuture = AssetLoader::loadAssetsAsync("../assets/assets.json", "menu");
     }
 
     void onExit() override {
@@ -31,15 +28,12 @@ public:
             font.loadFromFile("../assets/fonts/arial.ttf");
             sf::Text loadingText("Loading...", font, 30);
             loadingText.setFillColor(sf::Color::White);
-			loadingText.setOrigin(loadingText.getLocalBounds().width / 2, loadingText.getLocalBounds().height / 2);
+            loadingText.setOrigin(loadingText.getLocalBounds().width / 2, loadingText.getLocalBounds().height / 2);
             loadingText.setPosition(1280 / 2, 720 / 2);
             window.draw(loadingText);
         }
         else {
-            auto& textureManager = ResourceManager<sf::Texture>::GetInstance();
-            sf::Sprite playerSprite;
-            playerSprite.setTexture(textureManager.Get("background6"));
-            window.draw(playerSprite);
+            
         }
     }
 

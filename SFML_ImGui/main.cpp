@@ -10,6 +10,7 @@
 
 #include "StateManager.hpp"
 #include "GameState.hpp"
+#include "MenuState.hpp"
 #include "ResourceManager.hpp"
 
 int main()
@@ -38,7 +39,7 @@ int main()
 #pragma endregion
 
 	StateManager stateManager;
-	stateManager.changeState(std::make_unique<GameState>());
+	stateManager.changeState(std::make_unique<MenuState>());
 
 	sf::Clock clock;
 
@@ -81,11 +82,6 @@ int main()
 		ImGui::PopStyleColor(2);
 #pragma endregion
 
-
-		ImGui::Begin("Hello, world!");
-		ImGui::Button("Look at this pretty button!");
-		ImGui::Text("Hello!");
-		ImGui::End();
 
 		stateManager.update(deltaTime);
 

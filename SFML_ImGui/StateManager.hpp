@@ -10,6 +10,7 @@ public:
             currentState->onExit();
         }
         currentState = std::move(newState);
+        currentState->setStateManager(this);
         currentState->onEnter();
     }
 
