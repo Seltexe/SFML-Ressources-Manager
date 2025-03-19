@@ -13,10 +13,16 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Fichiers sources\thirdparty">
+    <Filter Include="Fichiers d%27en-tête\Core">
+      <UniqueIdentifier>{2f67b933-0b55-42f5-ab58-938adc023212}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Core">
+      <UniqueIdentifier>{349e00ca-fcf2-4f26-8c32-51e7a6de865c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\Thirdparty">
       <UniqueIdentifier>{978dc66b-5367-4508-b86f-aae6eabc4b4d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\thirdparty\ImGui">
+    <Filter Include="Fichiers sources\Thirdparty\ImGui">
       <UniqueIdentifier>{f2dde31a-ce4f-46df-9f5a-45a07eefd58c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -25,25 +31,22 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="..\thirdparty\imgui\imgui.cpp">
-      <Filter>Fichiers sources\thirdparty\ImGui</Filter>
+      <Filter>Fichiers sources\Thirdparty\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="..\thirdparty\imgui\imgui_demo.cpp">
-      <Filter>Fichiers sources\thirdparty\ImGui</Filter>
+      <Filter>Fichiers sources\Thirdparty\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="..\thirdparty\imgui\imgui_draw.cpp">
-      <Filter>Fichiers sources\thirdparty\ImGui</Filter>
+      <Filter>Fichiers sources\Thirdparty\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="..\thirdparty\imgui\imgui_tables.cpp">
-      <Filter>Fichiers sources\thirdparty\ImGui</Filter>
+      <Filter>Fichiers sources\Thirdparty\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="..\thirdparty\imgui\imgui_widgets.cpp">
-      <Filter>Fichiers sources\thirdparty\ImGui</Filter>
+      <Filter>Fichiers sources\Thirdparty\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="..\thirdparty\imgui\imgui-SFML.cpp">
-      <Filter>Fichiers sources\thirdparty\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="pch.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\Thirdparty\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="GameState.cpp">
       <Filter>Fichiers sources</Filter>
@@ -51,31 +54,58 @@
     <ClCompile Include="MenuState.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Core.cpp">
+      <Filter>Fichiers sources\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Fichiers sources\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="tools.cpp">
+      <Filter>Fichiers sources\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonManager.cpp">
+      <Filter>Fichiers sources\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Fichiers sources\Core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ResourceManager.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="State.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="GameState.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="StateManager.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="json.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="AssetLoader.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="MenuState.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Core.hpp">
+      <Filter>Fichiers d%27en-tête\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.hpp">
+      <Filter>Fichiers d%27en-tête\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="tools.hpp">
+      <Filter>Fichiers d%27en-tête\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ButtonManager.hpp">
+      <Filter>Fichiers d%27en-tête\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="StateManager.hpp">
+      <Filter>Fichiers d%27en-tête\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="AssetLoader.hpp">
+      <Filter>Fichiers d%27en-tête\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Fichiers d%27en-tête\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="State.hpp">
+      <Filter>Fichiers d%27en-tête\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.hpp">
+      <Filter>Fichiers d%27en-tête\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>Fichiers d%27en-tête\Core</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

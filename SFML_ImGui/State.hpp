@@ -29,7 +29,7 @@ public:
 	/// Render the state
     /// </summary>
     /// <param name="window"></param>
-    virtual void render(sf::RenderWindow& window) = 0;
+    virtual void render() = 0;
 #pragma endregion
 
 	void setStateManager(StateManager* stateManager) {

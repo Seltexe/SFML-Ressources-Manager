@@ -4,6 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <future>
+#include "Window.hpp"
 
 class MenuState : public State {
 public:
@@ -22,15 +23,15 @@ public:
 
     void update(sf::Time dt) override;
 
-    void render(sf::RenderWindow& window) override {
+    void render() override {
         if (!loadingDone) {
             sf::Font font;
             font.loadFromFile("../assets/fonts/arial.ttf");
             sf::Text loadingText("Loading...", font, 30);
             loadingText.setFillColor(sf::Color::White);
             loadingText.setOrigin(loadingText.getLocalBounds().width / 2, loadingText.getLocalBounds().height / 2);
-            loadingText.setPosition(1280 / 2, 720 / 2);
-            window.draw(loadingText);
+            loadingText.setPosition(Window::getSize().x / 2, Window::getSize().y / 2);
+            Window::draw(loadingText);
         }
         else {
             

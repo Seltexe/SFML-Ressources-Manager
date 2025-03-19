@@ -1,5 +1,6 @@
 #pragma once
 #include "State.hpp"
+#include "Window.hpp"
 #include <future>
 #include <iostream>
 
@@ -16,12 +17,15 @@ public:
 
     void update(sf::Time dt) {
         if (currentState)
+        {
+
             currentState->update(dt);
+        }
     }
 
-    void render(sf::RenderWindow& window) {
+    void render() {
         if (currentState)
-            currentState->render(window);
+            currentState->render();
     }
 
 private:
