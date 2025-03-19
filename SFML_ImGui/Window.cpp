@@ -16,7 +16,7 @@ std::atomic<bool> Window::m_hasFocus{ true };
 
 Window::Window()
 {
-	initTools();
+	tools::initTools();
 	sf::VideoMode tmpVidMode = sf::VideoMode::getDesktopMode();
 	sf::Uint32 style = sf::Style::Default;
 	m_window.create(tmpVidMode, "SFML", style);
@@ -97,6 +97,7 @@ void Window::display()
 
 	m_renderTexture.display();
 	m_textureTransition = m_renderTexture.getTexture();
+	m_window.setView(m_window.getDefaultView());
 	m_rectangleShape.setTexture(&m_textureTransition);
 	m_rectangleShape.setScale(ratio, ratio);
 
@@ -212,7 +213,7 @@ void Window::draw(sf::Vector2f const& _pos, sf::Vector2f const& _pos2, sf::Color
 {
 	m_rectangleGame.setFillColor(_color);
 	m_rectangleGame.setPosition(_pos2);
-	sf::Vector2f _size{ getMagnitudeBetween2Vectors(_pos, _pos2),6.f };
+	sf::Vector2f _size{ tools::getMagnitudeBetween2Vectors(_pos, _pos2),6.f };
 	float angle = std::atan2(_pos.y - _pos2.y, _pos.x - _pos2.x) * RAD2DEG;
 
 	m_rectangleGame.setOrigin(sf::Vector2f(0.f, _size.y / 2.f));

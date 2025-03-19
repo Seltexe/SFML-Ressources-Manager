@@ -14,34 +14,23 @@ public:
 
     virtual ~GameState() = default;
 
+    /// <summary>
+	/// Start loading assets in the background
+    /// </summary>
     void onEnter() override {
         std::cout << "Entering GameState" << std::endl;
         loadingFuture = AssetLoader::loadAssetsAsync("../assets/assets.json", "game");
     }
 
-    void onExit() override {
+    void onExit() override 
+    {
         std::cout << "Exiting GameState" << std::endl;
     }
 
+
     void update(sf::Time dt) override;
 
-    void render() override {
-        if (!loadingDone) {
-            sf::Font font;
-            font.loadFromFile("../assets/fonts/arial.ttf");
-            sf::Text loadingText("Loading...", font, 30);
-            loadingText.setFillColor(sf::Color::White);
-			loadingText.setOrigin(loadingText.getLocalBounds().width / 2, loadingText.getLocalBounds().height / 2);
-            loadingText.setPosition(Window::getSize().x / 2, Window::getSize().y / 2);
-            Window::draw(loadingText);
-        }
-        else {
-            auto& textureManager = ResourceManager<sf::Texture>::GetInstance();
-            sf::Sprite playerSprite;
-            playerSprite.setTexture(textureManager.Get("background6"));
-            Window::draw(playerSprite);
-        }
-    }
+    void render() override;
 
 private:
     std::future<bool> loadingFuture;

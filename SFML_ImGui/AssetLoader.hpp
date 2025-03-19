@@ -11,6 +11,12 @@
 
 class AssetLoader {
 public:
+    /// <summary>
+	/// Load assets from a JSON file asynchronously
+    /// </summary>
+    /// <param name="filename"></param>
+    /// <param name="stateName"></param>
+    /// <returns></returns>
     static std::future<bool> loadAssetsAsync(const std::string& filename, const std::string& stateName) {
         return std::async(std::launch::async, [filename, stateName]() {
             try {
@@ -24,6 +30,12 @@ public:
     }
 
 private:
+    /// <summary>
+	/// Load assets from a JSON file
+    /// </summary>
+    /// <param name="filename"></param>
+    /// <param name="stateName"></param>
+    /// <returns></returns>
     static bool loadAssetsFromJSON(const std::string& filename, const std::string& stateName) {
         std::ifstream file(filename);
         if (!file) {

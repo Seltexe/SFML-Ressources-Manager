@@ -23,20 +23,7 @@ public:
 
     void update(sf::Time dt) override;
 
-    void render() override {
-        if (!loadingDone) {
-            sf::Font font;
-            font.loadFromFile("../assets/fonts/arial.ttf");
-            sf::Text loadingText("Loading...", font, 30);
-            loadingText.setFillColor(sf::Color::White);
-            loadingText.setOrigin(loadingText.getLocalBounds().width / 2, loadingText.getLocalBounds().height / 2);
-            loadingText.setPosition(Window::getSize().x / 2, Window::getSize().y / 2);
-            Window::draw(loadingText);
-        }
-        else {
-            
-        }
-    }
+    void render() override;
 
 private:
     std::future<bool> loadingFuture;

@@ -32,7 +32,7 @@ bool ButtonManager::isMouseButtonPressed(sf::Mouse::Button _button, float _timer
 
 bool ButtonManager::isMouseAtPos(sf::Vector2f _pos, float _radius)
 {
-	if (getSqrMagnitudeBetween2Vectors(getMousePos(), _pos) < _radius * _radius)
+	if (tools::getSqrMagnitudeBetween2Vectors(getMousePos(), _pos) < _radius * _radius)
 	{
 		return true;
 	}
